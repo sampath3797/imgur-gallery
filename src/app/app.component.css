@@ -1,0 +1,25 @@
+p {
+  font-family: Lato;
+}
+
+/* .img{
+  margin: 10px;
+  padding: 2px;
+  border: 1px solid green;
+} */
+
+.imgContainer{
+  max-height: 75%;
+  overflow-y: scroll;
+  border: 5px solid rgb(171, 171, 241);
+  /*background-color: rgb(214, 191, 160);*/
+  background-image: url("bgImg.jpg");
+}
+
+
+
+.searchCriteria{
+  background-color: rgb(231, 222, 171);
+  align-content: center;
+}
+
