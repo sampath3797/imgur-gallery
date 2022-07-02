@@ -12,14 +12,14 @@ p {
   max-height: 75%;
   overflow-y: scroll;
   border: 5px solid rgb(171, 171, 241);
-  /*background-color: rgb(214, 191, 160);*/
-  background-image: url("bgImg.jpg");
+  background-color: rgb(185, 243, 158);
+  /* background-image: url("bgImg.jpg"); */
 }
 
 
 
 .searchCriteria{
-  background-color: rgb(231, 222, 171);
+  background-color: rgb(247, 243, 222);
   align-content: center;
 }
 
