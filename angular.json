@@ -51,7 +51,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "demo:build",
-            "host": "192.168.159.42",
+            "host": "192.168.42.165",
             "port": 4200
           },
           "configurations": {
@@ -74,7 +74,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "styles.css"
+              "src/styles.css"
             ],
             "scripts": [],
             "assets": [

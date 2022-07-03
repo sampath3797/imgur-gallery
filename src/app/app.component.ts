@@ -9,10 +9,9 @@ import { FormControl } from '@angular/forms';
   selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.css' ],
-  //providers:[ImageService]
 })
 export class AppComponent  {
-
+  title = 'Angular-Imgur-Gallery';
   sectionCtrl = new FormControl('hot');
   sortCtrl = new FormControl('viral');
   wndowCtrl = new FormControl('day');
@@ -65,6 +64,11 @@ export class AppComponent  {
                                                   this.isLoading = false; console.log(err);
                                                   }
                                           );
+  }
+
+  trackByFn(index: number, el:imageData)
+  {
+    return el.id;
   }
 
   ngOnDestroy()

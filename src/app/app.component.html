@@ -1,4 +1,4 @@
-<div style="height: 50px;background-color: grey;color:white; vertical-align: middle;text-align: center;font-size:2em">IMGUR GALLERY</div>
+<div style="height: 50px;background-color: grey;color:white; vertical-align: middle;text-align: center;"><h3>IMGUR GALLERY</h3></div>
 <div class="searchCriteria">
     <mat-form-field appearance="outline">
         <mat-label>Select Section</mat-label>
@@ -37,7 +37,7 @@
  </div>
  <div class="imgContainer">
  <mat-grid-list *ngIf="imageData.length > 0" cols="4" rowHeight="2:1" [gutterSize]="'10px'">
-   <mat-grid-tile *ngFor="let img of imageData "  >
+   <mat-grid-tile *ngFor="let img of imageData;trackBy:trackByFn "  >
     <div>
         <img src={{img.link}} alt={{img.description}}/>
         <mat-grid-tile-footer>{{img.description}}</mat-grid-tile-footer>
