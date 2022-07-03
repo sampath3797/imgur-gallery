@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { ImageService } from './image.service';
 import { Image, imageData, ImageDetails } from './image';
 import { FormControl } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'my-app',
@@ -60,8 +61,11 @@ export class AppComponent  {
                                                             );
                                             }
                                           },
-                                          err => {
-                                                  this.isLoading = false; console.log(err);
+                                          (err: HttpErrorResponse) => {
+                                                  this.isLoading = false; 
+                                                  alert(JSON.stringify(err.error?.data?.error)
+                                                  );
+                                                  console.log(err);
                                                   }
                                           );
   }

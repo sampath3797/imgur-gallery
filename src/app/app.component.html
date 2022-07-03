@@ -1,4 +1,4 @@
-<div style="height: 50px;background-color: grey;color:white; vertical-align: middle;text-align: center;"><h3>IMGUR GALLERY</h3></div>
+<div style="height: 50px;background-color: rgb(15, 156, 238);color:white; vertical-align: middle;text-align: center;"><h1>IMGUR GALLERY</h1></div>
 <div class="searchCriteria">
     <mat-form-field appearance="outline">
         <mat-label>Select Section</mat-label>
@@ -29,10 +29,10 @@
 </mat-select>
 </mat-form-field>
 
-<button style="margin-left: 5px;" mat-raised-button color="primary" (click)="reload()">Load Images</button>
+<button style="margin-left: 5px;" [disabled]="isLoading" mat-raised-button color="primary" (click)="reload()">Load Images</button>
 </div>
 
- <div *ngIf="isLoading">Loading Images...
+ <div *ngIf="isLoading">Loading Images....
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
  </div>
  <div class="imgContainer">
