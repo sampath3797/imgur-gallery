@@ -86,14 +86,17 @@ export class AppComponent  {
   // by appending letter 'm' to get thumbnails of medium size
   thumbnail(lnk: string)
   {
+    console.log()
     if(lnk.endsWith('.jpg'))
     {
       const lnkArr = lnk.split('.jpg');
+      console.log(lnkArr[0]+'m.jpg');
       return lnkArr[0]+'m.jpg';
     }
     else if(lnk.endsWith('.png'))
     {
       const lnkArr = lnk.split('.png');
+      console.log(lnkArr[0]+'m.png');
       return lnkArr[0]+'m.png';
     }
     
