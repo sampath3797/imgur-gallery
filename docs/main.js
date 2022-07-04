@@ -76,11 +76,16 @@ class AppComponent {
     ngOnInit() {
         this.fetchImages();
     }
+    // invokes fetchImages 
+    // when Load Images button clicked
     reload() {
         this.fetchImages();
     }
+    // method to fetch images from api end point
     fetchImages() {
+        // to empty the imageData array with existing data if any  before loading with fresh data.
         this.imageData.splice(0, this.imageData.length);
+        // isLoading boolean setting for showing progressbar and also disabling load images button.
         this.isLoading = true;
         this.ImagesSubscription = this._imgService.getImages(this.sectionCtrl.value, this.sortCtrl.value, this.wndowCtrl.value)
             .subscribe(res => {
@@ -88,24 +93,44 @@ class AppComponent {
             this.isLoading = false;
             if (res.data && ((_a = res.data) === null || _a === void 0 ? void 0 : _a.length) > 0) {
                 this.images = res.data;
-                this.images
+                this.images // filtering elements don't have images
                     .filter(x => x.images_count > 0)
                     .map(y => {
-                    y.images
+                    y.images // filtering elements that don't have video and only retain oly images of jpeg / png type
                         .filter(z => z.type === 'image/jpeg' || z.type === 'image/png')
-                        .map(p => this.imageData.push(p));
+                        .map(p => {
+                        // modifying link url to load medium thumbnail images
+                        p.link = this.thumbnail(p.link);
+                        // finally pushing elements to imageData Array for iterating in html template
+                        this.imageData.push(p);
+                    });
                 });
             }
         }, (err) => {
             var _a, _b;
             this.isLoading = false;
+            // to display the errors returned from api end point if any are there
             alert(JSON.stringify((_b = (_a = err.error) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.error));
-            console.log(err);
         });
     }
+    // as per apidocs.imgr.com documentation modifiying url 
+    // by appending letter 'm' to get thumbnails of medium size
+    thumbnail(lnk) {
+        if (lnk.endsWith('.jpg')) {
+            const lnkArr = lnk.split('.jpg');
+            return lnkArr[0] + 'm.jpg';
+        }
+        else if (lnk.endsWith('.png')) {
+            const lnkArr = lnk.split('.png');
+            return lnkArr[0] + 'm.png';
+        }
+    }
+    // for improving performance to render only those elements with id changed
     trackByFn(index, el) {
         return el.id;
     }
+    // unsubscribing the subscription before component destroy
+    // to avoid memory leaks
     ngOnDestroy() {
         this.ImagesSubscription.unsubscribe();
     }
