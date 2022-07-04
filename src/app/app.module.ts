@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ImageService } from './image.service';
 import {MatSelectModule} from '@angular/material/select';
@@ -15,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [BrowserModule,BrowserAnimationsModule, MatProgressBarModule, MatInputModule, FormsModule,MatFormFieldModule, ReactiveFormsModule, MatGridListModule, MatSelectModule,MatButtonModule, HttpClientModule],
-  declarations: [AppComponent, HelloComponent],
+  declarations: [AppComponent],
   bootstrap: [AppComponent],
   providers:[ImageService]
 })

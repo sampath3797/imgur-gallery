@@ -65,7 +65,7 @@
           
           "options": {
             "browserTarget": "demo:build",
-            "host": "192.168.42.47",
+            "host": "192.168.159.42",
             "port": 4200
           },
           "configurations": {

@@ -48,14 +48,6 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     fixture.detectChanges();
     expect(app.sectionCtrl.value).toEqual('hot');
-    /* const trigger = fixture.debugElement.query(By.css('.mat-select-trigger')).nativeElement;
-    trigger.click();
-    fixture.detectChanges();
-    await fixture.whenStable().then(() => {
-        const inquiryOptions = fixture.debugElement.queryAll(By.css('.mat-option-text'));
-        const value = trigger.options[0].value;
-        expect(value).toContain(3);
-    }); */
       });
 
       it('should validate the load images button to disabled while loading images', async () => {
